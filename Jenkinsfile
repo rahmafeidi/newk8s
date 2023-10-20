@@ -14,6 +14,7 @@ pipeline {
             stage('Install AWS CLI') {
                 steps {
                 sh 'curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
+                sh ' sudo apt-get install unzip'
                 sh 'unzip awscliv2.zip'
                 sh 'sudo ./aws/install'
             }}
