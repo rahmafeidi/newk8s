@@ -15,8 +15,8 @@ pipeline {
                 steps {
                     withAWS(credentials: 'aws-credentials', region: 'eu-north-1') {
                         sh 'aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 025556018291.dkr.ecr.eu-north-1.amazonaws.com'
-                        sh 'docker tag app:latest application:latest 025556018291.dkr.ecr.eu-north-1.amazonaws.com/application:latest'
-                        sh 'docker push application:latest 025556018291.dkr.ecr.eu-north-1.amazonaws.com/application:latest'
+                        sh 'docker tag app:latest 025556018291.dkr.ecr.eu-north-1.amazonaws.com/application:latest'
+                        sh 'docker push  025556018291.dkr.ecr.eu-north-1.amazonaws.com/application:latest'
                     }
                 }
             }
