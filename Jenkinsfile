@@ -11,13 +11,6 @@ pipeline {
                     sh 'docker build -t app .'
                 }
             }
-            stage('Install AWS CLI') {
-                steps {
-                sh 'curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
-                sh ' apt-get install unzip'
-                sh 'unzip awscliv2.zip'
-                sh 'sudo ./aws/install'
-            }}
             stage('Push Docker Image to ECR') {
                 steps {
                     withAWS(credentials: 'aws-credentials', region: 'eu-north-1') {
