@@ -1,12 +1,11 @@
 pipeline {
     agent any
     stages {
-         stages {
-    stage('Cloning Git') {
-      steps {
-        git url: 'https://github.com/rahmafeidi/newk8s.git',
-            credentialsId: 'github'
-      }
+           stage('Cloning Git') {
+                 steps {
+                    git url: 'https://github.com/rahmafeidi/newk8s.git',
+                    credentialsId: 'github'
+           }}
             stage('Docker Image Build') {
                 steps {
                     sh 'docker build -t app .'
