@@ -1,11 +1,11 @@
 pipeline {
     agent any
     stages {
-           stage('Cloning Git') {
-                 steps {
-                    git url: 'https://github.com/rahmafeidi/newk8s.git',
-                    credentialsId: 'github'
-           }}
+          stage('Checkout Codebase'){
+            steps{
+                checkout scm: [$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/rahmafeidi/newk8s.git']]] 
+            }
+        }
             stage('Docker Image Build') {
                 steps {
                     sh 'docker build -t app .'
