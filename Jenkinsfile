@@ -1,11 +1,7 @@
 pipeline {
     agent any
     stages {
-          stage('Checkout Codebase'){
-            steps{
-                checkout scm: [$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/rahmafeidi/newk8s.git']]] 
-            }
-        }
+          
             stage('Docker Image Build') {
                 steps {
                     sh 'docker build -t app .'
