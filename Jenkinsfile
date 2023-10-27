@@ -3,7 +3,7 @@ pipeline {
     stages {
            stage('Clean Workspace') {
             steps {
-                deleteDir() // This step cleans the workspace
+                  cleanWs()
             }
         }
               stage('Checkout Codebase'){
