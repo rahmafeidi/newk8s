@@ -35,7 +35,7 @@ pipeline {
                     withAWS(credentials: 'aws-credentials', region: 'eu-north-1') {
                         script {
                             sh 'aws eks update-kubeconfig --name test --region eu-north-1'
-                            sh 'kubectl apply -f deployment.yaml'
+                            sh 'kubectl --kubeconfig=/var/lib/jenkins/.kube/config apply -f deployment.yaml'
                             sh 'kubectl apply -f service.yaml'
                         }
                     }
