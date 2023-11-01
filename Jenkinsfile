@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    stages {
+    environment {
+        KUBECONFIG = credentials('aws-credentials') // Use a Jenkins secret for the kubeconfig file
+    }    stages {
            stage('Clean Workspace') {
             steps {
                   cleanWs()
