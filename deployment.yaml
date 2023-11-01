@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nodeapp
-        image: rahmafeidi/node-app
+        image: 025556018291.dkr.ecr.eu-north-1.amazonaws.com/application:latest
         ports:
         - containerPort: 3005
        
