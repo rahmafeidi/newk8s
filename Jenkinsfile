@@ -36,7 +36,6 @@ pipeline {
                         script {
                             sh 'aws eks update-kubeconfig --name my-eks-cluster --region eu-north-1'
                             sh 'kubectl --kubeconfig=/var/lib/jenkins/.kube/config apply -f deployment.yaml'
-                            sh 'kubectl apply -f service.yaml'
                         }
                     }
                 }
